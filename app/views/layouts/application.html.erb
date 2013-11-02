@@ -10,6 +10,8 @@
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 	<%= yield %>
+	<p class"notice"><%= "You're logged in as #{current_user.email.to_s}" %></p>
+	<p><%= link_to 'logout', destroy_user_session_path, :method => :delete %></p>
 
 </body>
 </html>
