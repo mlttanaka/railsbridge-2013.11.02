@@ -32,7 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise'
+gem 'devise' # Sekuriteh!
+gem 'bootstrap-sass-rails'  # Pretty it up!
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
