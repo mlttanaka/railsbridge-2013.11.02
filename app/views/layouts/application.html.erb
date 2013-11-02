@@ -7,14 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-default" role="navigation">
+	 	<ul class="nav navbar-nav">
+	   <li><a class="brand" href="#">Message Board</a></li>
+	 </ul>
+	 <ul class="nav navbar-nav navbar-right">
+	 	<li class="navbar-text">
+			<% if user_signed_in? %>
+				<%= current_user.email %> |
+			<% end %>
+		</li>
+		<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
+	</ul>
+</div>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 	<%= yield %>
-	<p class"notice">
-		<% if user_signed_in? %>
-			<%= "You're logged in as #{current_user.email.to_s}" %></p>
-		<% end %>
-	<p><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></p>
-
 </body>
 </html>
