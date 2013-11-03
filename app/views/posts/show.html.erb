@@ -1,2 +1,6 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h3><%= @post.title %></h3>
+<p>
+	posted by <strong><%= @post.user.email %></strong><br />
+	<%= @post.created_at.to_formatted_s(:month_day_year_12hr_time) %>
+</p>
+<p class="lead"><%= @post.content %></p>
