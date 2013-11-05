@@ -13,7 +13,9 @@
 <% if @post.replies.any? %>
 	<% @post.replies.each do |reply| %>
 		<p><%= reply.content %></p>
-		<small><%= reply.user.email %> on <%= reply.created_at.to_formatted_s(:month_day_year_12hr_time) %></small>
+		<small><%= reply.user.email %> on 
+			<%= reply.created_at.to_formatted_s(:month_day_year_12hr_time) %>
+		</small>
 	<% end %>
 <% end %>
 </blockquote>
