@@ -1,6 +1,10 @@
 HowAboutPurple::Application.routes.draw do
   devise_for :users
-  resources :posts
+  
+  resources :posts do
+    resources :replies, shallow: true
+  end
+  
   root 'home#index'
 
   # Example of regular route:

@@ -1,6 +1,24 @@
-<h3><%= @post.title %></h3>
-<p>
+<h4><%= @post.title %></h4>
+<small>
 	posted by <strong><%= @post.user.email %></strong><br />
 	<%= @post.created_at.to_formatted_s(:month_day_year_12hr_time) %>
-</p>
-<p class="lead"><%= @post.content %></p>
+</small>
+<h5><%= @post.content %></h5>
+<hr>
+
+<!-- List all replies related to this post. -->
+<h4>Replies</h4>
+
+<blockquote>
+<% if @post.replies.any? %>
+	<% @post.replies.each do |reply| %>
+		<p><%= reply.content %></p>
+		<small><%= reply.user.email %> on <%= reply.created_at.to_formatted_s(:month_day_year_12hr_time) %></small>
+	<% end %>
+<% end %>
+</blockquote>
+
+<%= button_to 'Reply', new_post_reply_path(params[:id]), method: :get, class: 'btn btn-default btn-small' %>
+
+
+

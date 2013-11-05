@@ -1,0 +1,24 @@
+<h4>Replying to '<%= @title %>'</h4>
+
+<%= form_for @reply do |f| %>
+  <!-- <% if @reply.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@reply.errors.count, "error") %>
+					prohibited this post from being saved:
+			</h2>
+      <ul>
+        <% @reply.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> -->
+ 
+  <p>
+    <%= f.text_area :content %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Reply" %>
+  </p>
+<% end %>
