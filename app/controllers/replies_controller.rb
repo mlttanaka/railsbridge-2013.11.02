@@ -2,7 +2,8 @@ class RepliesController < ApplicationController
   
   def new
     @post = current_user.posts.find(params[:post_id])
-    @title = @post.title
+    @title ||= @post.title
+    @reply = @post.replies.build
   end
   
   def create
@@ -14,6 +15,7 @@ class RepliesController < ApplicationController
     if @reply.save
       redirect_to post_path(@post)
     else
+      @title = @post.title
       render 'new'
     end
   end
