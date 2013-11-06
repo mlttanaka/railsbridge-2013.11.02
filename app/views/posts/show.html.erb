@@ -20,7 +20,8 @@
 <% end %>
 </blockquote>
 
-<%= button_to 'Reply', new_post_reply_path(params[:id]), method: :get, class: 'btn btn-default btn-small' %>
+<%= form_tag(new_post_reply_path(@post), method: :get) %>
+<!-- <%= button_to 'Reply', new_post_reply_path(params[:id]), method: :get, class: 'btn btn-default btn-small' %> -->
 
 
 
