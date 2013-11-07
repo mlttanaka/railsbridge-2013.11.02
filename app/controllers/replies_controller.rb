@@ -14,8 +14,7 @@ class RepliesController < ApplicationController
     if @reply.save
       redirect_to post_path(@post)
     else
-      @title = @post.title
-      redirect_to new_post_reply_path(@post, @reply)
+      render :new, object: @post
     end
   end
   
