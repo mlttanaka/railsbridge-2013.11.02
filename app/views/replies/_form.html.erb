@@ -1,18 +1,18 @@
-<h4>Replying to '<%= @title %>'</h4>
+<h4>Replying to '<%= @post.title %>'</h4>
 
 <%= form_for([@post, @post.replies.build]) do |f| %>
-
-<% if @reply.errors.any? %>
-	<div id="error_explanation">
-	  <div class="alert alert-error">
-			<p class="text-danger">
-	    	<% @reply.errors.full_messages.each do |msg| %>
-	     		<%= msg %>.<br />
-	    	<% end %>
-	  	</p>
+	<% reply = @post.replies.build %>
+	<% if reply.errors.any? %>
+		<div id="error_explanation">
+		  <div class="alert alert-error">
+				<p class="text-danger">
+		    	<% reply.errors.full_messages.each do |msg| %>
+		     		<%= msg %>.<br />
+		    	<% end %>
+		  	</p>
+			</div>
 		</div>
-	</div>
-<% end %>
+	<% end %>
 	
 	<div class="row">
 		<div class='col-xs-4'>
