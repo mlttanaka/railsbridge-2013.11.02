@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       StatsMix.track("Blog Posts")
       Librato.increment 'posts_created'
-      http = Keen.publish_async(:posts)
+      http = Keen.publish_async("Posts")
       http.callback { |response| puts "Success: #{response}"}
       http.errback { puts "was a failurrr :,(" }
       redirect_to @post
