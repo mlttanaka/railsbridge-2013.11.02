@@ -12,6 +12,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor' # for Heroku deployment
+  gem 'thin'
 end
 
 # Use SCSS for stylesheets
@@ -40,6 +41,8 @@ end
 gem 'devise' # Sekuriteh!
 gem 'bootstrap-sass-rails'  # Pretty it up!
 gem 'statsmix'
+gem 'keen'
 gem 'newrelic_rpm'
 gem 'librato-rails'
+gem 'em-http-request', '~> 1.0'
 
