@@ -39,4 +39,5 @@ end
 
 gem 'devise' # Sekuriteh!
 gem 'bootstrap-sass-rails'  # Pretty it up!
+gem 'statsmix'
 

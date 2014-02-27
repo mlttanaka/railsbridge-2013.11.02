@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     
     if @post.save
+      StatsMix.track("Blog Posts")
       redirect_to @post
     else
       render :new
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    StatsMix.track("Post Views", 1, options = {})
   end
   
   
