@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     
     if @post.save
       StatsMix.track("Blog Posts")
+      Librato.increment 'posts_created'
       redirect_to @post
     else
       render :new
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     StatsMix.track("Post Views", 1, options = {})
+    Librato.increment 'posts_viewed'
   end
   
   

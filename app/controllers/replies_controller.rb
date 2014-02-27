@@ -13,6 +13,8 @@ class RepliesController < ApplicationController
     
     if @reply.save
       redirect_to post_path(@post)
+      StatsMix.track("Blog Replies")
+      Librato.increment 'replies_created', :source => current_user.id
     else
       render :new, object: @post
     end
